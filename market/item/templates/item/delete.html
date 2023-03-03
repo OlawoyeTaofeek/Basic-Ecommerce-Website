@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{title}}{% endblock%}
+
+{% block content %}
+<h1> Welcone to delete Page </h1>
+
+<div class="main">
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+    <!-- Create a Form -->
+        <form method="POST">
+            <!-- Security token by Django -->
+            {% csrf_token %}
+            <h1 class="text-2xl"><strong>Are you sure you want to Delete {{ data.name }}?</strong></h1>
+            <button class="mt-6 py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Submit</button>
+            <a href="{% url 'item:detail' data.id %}" class="mt-6 py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Cancel</a>
+        </form>
+      </div>
+</div>
+{% endblock %}
